@@ -1,0 +1,10 @@
+{
+  "description": "A status indicator for a Wireguard connection.",
+  "name": "WG Indicator",
+  "shell-version": [
+    "3.22.1"
+  ],
+  "url": "https://github.com/sync1211/wg-indicator",
+  "uuid": "wg-indicator@dpf12110.gmail.com",
+  "version": 4
+}
