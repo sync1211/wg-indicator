@@ -1,5 +1,5 @@
 {
-  "description": "A status indicator for a Wireguard connection.",
+  "description": "A status indicator for Wireguard connections.",
   "name": "WG Indicator",
   "shell-version": [
     "3.22.1"
