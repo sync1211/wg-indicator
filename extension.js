@@ -72,7 +72,7 @@ const WgIndicator = new Lang.Class({
             let status = process.get_status();
             
             //update indicator
-            if (status === 1) { //disabled
+            if (status === 256) { //disabled
                 this.hide();
             } else if (status === 0) { //enabled
                 this.show();
@@ -83,7 +83,6 @@ const WgIndicator = new Lang.Class({
 
                 //logging
                 log(status);
-                log(stdout);
             }
         });
     },
