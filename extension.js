@@ -58,7 +58,7 @@ const WgIndicator = new Lang.Class({
 
         //spawn process
         let process = Gio.Subprocess.new(
-            ["/bin/bash", "-c", "nmcli c s --active | grep wireguard"],
+            ["/bin/bash", "-c", "nmcli c s --active | grep wireguard > /dev/null"],
             Gio.SubprocessFlags.NONE
         );
 
