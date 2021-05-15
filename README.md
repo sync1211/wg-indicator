@@ -9,8 +9,9 @@ A simple status indicator for wireguard connections.
 
 ## Screenshots:
 
-![Screenshot]("https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot1.png")
+<img src="https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot1.png" style="float: left;"></img>
 
 
 
 *This extension is a fork of https://extensions.gnome.org/extension/2027/wg-indicator/*
+
