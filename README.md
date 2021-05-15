@@ -1,14 +1,14 @@
 # WG-Indicator
 A simple status indicator for wireguard connections.
 
-[<img src="https://sync1211.github.io/wg-indicator/.github/gnome-extensions.png"></img>](https://extensions.gnome.org/extension/3418/wg-indicator/)
+[<img src="https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/gnome-extensions.png"></img>](https://extensions.gnome.org/extension/3418/wg-indicator/)
 
 ## Requirements:
 * nmcli
 
 ## Screenshots:
 
-![Screenshot]("https://sync1211.github.io/wg-indicator/.github/screenshot1.png")
+![Screenshot]("https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot1.png")
 
 
 
