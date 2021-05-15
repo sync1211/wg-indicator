@@ -10,16 +10,16 @@ const Gio = imports.gi.Gio;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
-//icons
-const ICON_RED = Gio.icon_new_for_string(Me.dir.get_path()+'/icons/wg-red.svg');
-const ICON_BLACK = Gio.icon_new_for_string(Me.dir.get_path()+'/icons/wg-black.svg');
+//Icon theme
+const DEFAULT_THEME = "color";
 
-//timeout
-const TIMEOUT_DEFAULT = 2
+//Timeout
+const TIMEOUT_DEFAULT = 2;
 
-//gsettings
-//const GS_SCHEMA = "org.gnome.shell.extensions.wg-indicator";
-//const GS_KEY_TIMEOUT = "Refresh_Delay";
+//Gsettings
+const GS_SCHEMA = "org.gnome.shell.extensions.wg-indicator";
+const GS_KEY_TIMEOUT = "refresh-delay";
+const GS_KEY_ICONPATH = "theme";
 
 const WgIndicator = new Lang.Class({
     Name: 'WgIndicator',
@@ -28,29 +28,40 @@ const WgIndicator = new Lang.Class({
     _init: function() {
         this.parent(0.0, "WG Indicator", false);
         
-        //icon
-        this.wg_icon = new St.Icon({
-            gicon: ICON_BLACK,
-            style_class: "system-status-icon",
-        });
-        
-        this.add_actor(this.wg_icon);
-        this._refresh();
-        
-        //set timeout
+        //Set timeout
         this.timeout_seconds = TIMEOUT_DEFAULT; 
 
-        ////register settings
-        //if (Gio.Settings.list_schemas().indexOf(GS_SCHEMA) !== -1) {
-        //    this.gsettings = new Gio.Settings({
-        //        schema: GS_SCHEMA
-        //    });
-        //    this.gsettings.connect('changed::' + GS_KEY_TIMEOUT, _timeoutChanged);
-        //}
+        //Register settings
+        this.gsettings = ExtensionUtils.getSettings(GS_SCHEMA);
+        this.gsettings.connect('changed::' + GS_KEY_TIMEOUT, this._timeoutChanged.bind(this));
+        this.gsettings.connect('changed::' + GS_KEY_ICONPATH, this._themeChanged.bind(this));
+        this.timeout_seconds = this.gsettings.get_int(GS_KEY_TIMEOUT);
+        this.icon_path = Me.dir.get_path() + "/icons/" + this.gsettings.get_string(GS_KEY_ICONPATH) + "/"; 
+        
+        this.icon_active = Gio.icon_new_for_string(this.icon_path + "active.svg");
+        this.icon_error = Gio.icon_new_for_string(this.icon_path + "error.svg");
+
+
+        //Create indicator
+        this.wg_icon = new St.Icon({
+            style_class: "system-status-icon",
+        });
+
+        this.add_child(this.wg_icon);
+        this._refresh();
     },
    
     _timeoutChanged(){
         this.timeout_seconds = this.gsettings.get_int(GS_KEY_TIMEOUT);
+        this._refresh();
+    },
+
+    
+    _themeChanged(){
+        this.icon_path = Me.dir.get_path() + "/icons/" + this.gsettings.get_string(GS_KEY_ICONPATH) + "/";
+        this.icon_active = Gio.icon_new_for_string(this.icon_path + "active.svg");
+        this.icon_error = Gio.icon_new_for_string(this.icon_path + "error.svg");
+        this._refresh();
     },
 
     _checkWG: function() {
@@ -76,9 +87,9 @@ const WgIndicator = new Lang.Class({
                 this.hide();
             } else if (status === 0) { //enabled
                 this.show();
-                this.wg_icon.gicon = ICON_RED;
+                this.wg_icon.gicon = this.icon_active;
             } else { //error
-                this.wg_icon.gicon = ICON_BLACK;
+                this.wg_icon.gicon = this.icon_error;
                 this.show();
 
                 //logging

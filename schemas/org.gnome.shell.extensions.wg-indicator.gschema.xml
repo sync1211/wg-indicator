@@ -1,0 +1,14 @@
+<schemalist gettext-domain="wg-indicator">
+    <schema id="org.gnome.shell.extensions.wg-indicator" path="/org/gnome/shell/extensions/wg-indicator/">
+        <key type="i" name="refresh-delay">
+            <default>2</default>
+            <summary>Seconds to wait between checking for wireguard connections</summary>
+            <description/>
+        </key>
+        <key type="s" name="theme">
+            <default>"colored"</default>
+            <summary>The icon theme to use</summary>
+            <description/>
+        </key>
+    </schema>
+</schemalist>
