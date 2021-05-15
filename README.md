@@ -13,5 +13,5 @@ A simple status indicator for wireguard connections.
 
 
 
-*This extension is a fork of https://extensions.gnome.org/extension/2027/wg-indicator/*
+*This extension is a fork of [asterios' wg-indicator extension](https://extensions.gnome.org/extension/2027/wg-indicator/)*
 
