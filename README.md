@@ -11,7 +11,7 @@ A simple status indicator for wireguard connections.
 
 |                           Colored                            |                            White                             |                            Black                             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![colored](https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot_color.png) | ![white](https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot_white.png) | ![white](https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot_black.png) |
+| ![colored](https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot_color.png) | ![white](https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot_white.png) | ![black](https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/screenshot_black.png) |
 
 *This extension is a fork of [asterios' wg-indicator extension](https://extensions.gnome.org/extension/2027/wg-indicator/)*
 
