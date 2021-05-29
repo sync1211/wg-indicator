@@ -1,7 +1,7 @@
 [<img src="https://raw.githubusercontent.com/sync1211/wg-indicator/main/.github/gnome-extensions.png" width=350></img>](https://extensions.gnome.org/extension/3418/wg-indicator/)
 
 # WG-Indicator
-A simple status indicator for wireguard connections.
+A simple status indicator for WireGuard connections.
 
 
 ## Requirements:
