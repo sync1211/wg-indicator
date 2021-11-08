@@ -2,10 +2,11 @@
   "description": "A status indicator for Wireguard connections.",
   "name": "WG Indicator",
   "shell-version": [
+    "41",
     "40",
     "3.22.1"
   ],
   "url": "https://github.com/sync1211/wg-indicator",
   "uuid": "wg-indicator@dpf12110.gmail.com",
-  "version": 5
+  "version": 6
 }
